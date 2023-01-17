@@ -6,11 +6,11 @@ const LOGIN_USER_KEY = "LOGIN_USER_KEY";
 //   process.env.REACT_APP_ENVIRONMENT &&
 //   process.env.REACT_APP_ENVIRONMENT === "PRODUCTION"
 // ) {
-//   baseURL = process.env.REACT_APP_API_BASE_URL;
+//   baseURL = "https://ActiveBisqueSpellchecker.danielt3000.repl.co";
 // } else {
-//   baseURL = "http://127.0.0.1:8000/";
+//   baseURL = "https://ActiveBisqueSpellchecker.danielt3000.repl.co";
 // }
-var baseURL = "https://store-cooltees-backend.herokuapp.com/";
+var baseURL = "https://ActiveBisqueSpellchecker.danielt3000.repl.co";
 
 const api = axios.create({
   baseURL: baseURL,
@@ -21,6 +21,7 @@ const api = axios.create({
 
 api.interceptors.request.use(
   (config) => {
+    
     if (localStorage.getItem(LOGIN_USER_KEY)) {
       config.headers.common["Authorization"] = JSON.parse(
         localStorage.getItem(LOGIN_USER_KEY)
